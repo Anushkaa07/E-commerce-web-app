@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="Shop the cutest handmade crochet accessories at Blushy Cheeks!">
+  <meta property="og:title" content="Blushy Cheeks">
+  <meta property="og:description" content="Shop the cutest handmade crochet accessories at Blushy Cheeks!">
+  <meta property="og:image" content="images/banner1.webp">
+  <meta property="og:url" content="https://myblushycheeks.com">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Blushy Cheeks</title>
+  <!-- FontAwesome & fonts -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+
+  <!-- preload critical CSS, then swap to stylesheet. Provide a noscript fallback -->
+  <link rel="preload" href="style.css" as="style" onload="this.rel='stylesheet'">
+  <!-- <noscript><link rel="stylesheet" href="style.css"></noscript> --> 
+
+  <!-- preload critical images (optional) -->
+  <link rel="preload" as="image" href="images/banner1.webp">
+  <link rel="preload" as="image" href="images/logo.png">
+</head>
+
+<body oncontextmenu="return false;" ondragstart="return false;"> <!-- Disable right-click and drag to prevent image saving -->
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+
+    <!-- Preloader: Animated yarn ball and longer, thinner needle (based on user image) with smooth closing animation -->
+    <div id="preloader" style="position: fixed; inset: 0; background: #fff5f8; z-index: 99999; display: flex; align-items: center; justify-content: center; transition: opacity 0.7s cubic-bezier(.55,0,.1,1), transform 0.7s cubic-bezier(.55,0,.1,1);">
+    <div style="text-align: center;">
+        <!-- SVG traced and stylized from user image reference ![image1](image1) -->
+        <svg id="crochet-preloader-svg" viewBox="0 0 400 220" width="160" height="88" style="display:block; margin:auto;">
+        <!-- Left Yarn Ball -->
+        <ellipse id="yarn-left" cx="110" cy="110" rx="54" ry="48" fill="#ffdbea" stroke="#ff6eb6" stroke-width="4"/>
+        <!-- Right Yarn Ball -->
+        <ellipse id="yarn-right" cx="235" cy="110" rx="54" ry="48" fill="#ffdbea" stroke="#ff6eb6" stroke-width="4"/>
+        <!-- Yarn Wrapper -->
+        <rect x="162" y="87" width="32" height="46" rx="8" fill="#ffb3d9" stroke="#ff6eb6" stroke-width="2"/>
+        <!-- Longer, Thinner Crochet Needle -->
+        <g id="needle-group" style="transform-origin: 140px 45px;">
+            <!-- Shaft (longer, thinner) -->
+            <rect x="135" y="25" width="6" height="95" rx="3" fill="#ff6eb6"/>
+            <!-- Tip (smaller) -->
+            <ellipse cx="138" cy="25" rx="6" ry="4" fill="#fff6fa" stroke="#ff6eb6" stroke-width="1.5"/>
+        </g>
+        <!-- Yarn details (curves) -->
+        <path id="yarn-detail1" d="M75 95 Q115 45 142 95" fill="none" stroke="#ff9a9e" stroke-width="3"/>
+        <path id="yarn-detail2" d="M75 120 Q115 170 142 120" fill="none" stroke="#ffb3d9" stroke-width="3"/>
+        <path id="yarn-detail3" d="M255 95 Q220 45 195 95" fill="none" stroke="#ff9a9e" stroke-width="3"/>
+        <path id="yarn-detail4" d="M255 120 Q220 170 195 120" fill="none" stroke="#ffb3d9" stroke-width="3"/>
+        <!-- Yarn tail (animated) -->
+        <path id="yarn-tail" d="M194 142 Q180 155 160 166 Q140 180 170 200" fill="none" stroke="#ff6eb6" stroke-width="4" stroke-linecap="round"/>
+        <!-- Yarn tail right (animated) -->
+        <path id="yarn-tail-right" d="M230 142 Q260 160 250 190" fill="none" stroke="#ff6eb6" stroke-width="4" stroke-linecap="round"/>
+        <!-- Subtle sparkles -->
+        <circle cx="160" cy="80" r="3.5" fill="#fff6fa" opacity="0.9"/>
+        <circle cx="255" cy="135" r="2.8" fill="#fff6fa" opacity="0.7"/>
+        <circle cx="125" cy="165" r="2.1" fill="#fff6fa" opacity="0.6"/>
+        </svg>
+        <div style="font-family:'Dancing Script',cursive; font-size:1.5rem; color:#ff6eb6; margin-top: 14px;">
+        Crocheting a little cuteness…
+        </div>
+    </div>
+    </div>
+
+
+    <!-- <div class="marquee-container" aria-hidden="false" role="region" aria-label="Site offers">
+        <div class="marquee-content" aria-hidden="true">
+        <span>✨ Get a freebie on order above ₹499! ✨ Free Shipping on Orders Over ₹999! ✨ New Arrivals Every Week! ✨ 50% OFF on Selected Items! ✨</span>
+        </div>
+    </div> -->
+
+
+    <marquee behavior="scroll" direction="left" scrollamount="5" style="background: linear-gradient(90deg, #e384ac, #ff6eb6); color: white; font-weight: 500; font-size: 14px; padding: 8px 0; width: 100vw;">
+    ✨   Get a freebie on order above ₹499!   ✨   Free Shipping on Orders Over ₹999!   ✨   New Arrivals Every Week!   ✨    50% OFF on Selected Items!   ✨
+    </marquee>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar"  id="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <a href="#home">
+                    <img src="images/logo.png" href="#home" width="800" height="500" alt="BlushyCheeks Logo" class="logo-img"></a> <span class="logo-text">Blushy Cheeks</span>
+               
+                <!-- <h1>BlushyCheeks</h1> -->
+                <!-- <span>✨</span> -->
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item active">
+                    <a href="#home" class="nav-link" tabindex="0">
+                        <i class="fas fa-home"></i>
+                        <span>Home</span>
+                    </a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a href="#shop" class="nav-link" tabindex="0">
+                        <i class="fas fa-store"></i>
+                        <span>Shop</span>
+                        <i class="fas fa-chevron-down dropdown-icon"></i>
+                    </a>
+                    <div class="dropdown-menu">
+                        <a href="#new-arrivals" tabindex="0">New Arrivals</a>
+                        <a href="#all-products" tabindex="0">All Products</a>
+                        <a href="#category" tabindex="0">Shop by Category</a>
+                        <a href="#price" tabindex="0">Shop by Price</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a href="#about" class="nav-link" tabindex="0">
+                        <i class="fas fa-heart"></i>
+                        <span>About</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="https://wa.me/918794387293" class="nav-link" tabindex="0" target="_blank" rel="noopener">
+                        <i class="fas fa-envelope"></i>
+                        <span>Contact</span>
+                    </a>
+                </li>
+                <!-- <li class="nav-item">
+                    <a href="#help" class="nav-link" tabindex="0">
+                        <i class="fas fa-question-circle"></i>
+                        <span>Help</span>
+                    </a>
+                </li> -->
+            </ul>
+            <!-- <div class="search-container">
+                <input type="text" class="search-input" placeholder="Search products..." id="searchInput">
+                <button class="search-btn">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div> -->
+
+
+            
+            <div class="cart-container">
+                <button class="cart-btn" id="cartBtn" aria-label="Open shopping cart">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="cart-count" id="cartCount">0</span>
+                </button>
+            </div>
+
+            <div class="hamburger" id="hamburger" tabindex="0" aria-label="Toggle navigation menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div id="mainContent">
+        <!-- Banner Section -->
+        <section class="banner" id="home">
+            <div class="banner-slider">
+                <div class="banner-slide active">
+                    <img src="images/banner1.webp" width="800" height="500" alt="Cute Keychain" >
+                    <div class="banner-content">
+                        <h2>Adorable Keychains Collection</h2>
+                        <p>Starting from ₹49</p>
+                        <!-- <button class="cta-btn" tabindex="0" aria-label="Shop keychains">Shop Now</button> -->
+                    </div>
+                </div>
+                <div class="banner-slide">
+                    <img src="images/banner2.webp" width="800" height="500" alt="Crochet Items"  >
+                    <div class="banner-content">
+                        <h2>Handmade Crochet Items</h2>
+                        <p>Starting from ₹49</p>
+
+                    </div>
+                </div>
+                <div class="banner-slide">
+                    <img src="images/banner3.webp" width="800" height="500" alt="Cute Pouches"  >
+                    <div class="banner-content">
+                        <h2>Aesthetic Pouches Collection</h2>
+                        <p>Starting from ₹159</p>
+                      
+                    </div>
+                </div>
+            </div>
+            <div class="banner-dots">
+                <span class="dot active" data-slide="0" tabindex="0" aria-label="Go to slide 1"></span>
+                <span class="dot" data-slide="1" tabindex="0" aria-label="Go to slide 2"></span>
+                <span class="dot" data-slide="2" tabindex="0" aria-label="Go to slide 3"></span>
+            </div>
+        </section>
+
+        <!-- New Arrivals Section -->
+        <section class="new-arrivals" id="new-arrivals">
+            <div class="container">
+                <h2 class="section-title">
+                    <i class="fas fa-sparkles"></i>
+                    New Arrivals
+                    <i class="fas fa-sparkles"></i>
+                </h2>
+                <div class="products-grid" id="newArrivalsGrid" aria-live="polite">
+                    <!-- Populated by JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Shop by Category Section -->
+        <section class="shop-by-category" id="category">
+            <div class="container">
+                <h2 class="section-title">
+                    <i class="fas fa-tags"></i>
+                    Shop by Category
+                    <i class="fas fa-tags"></i>
+                </h2>
+                <div class="categories-grid">
+                    
+                    <div class="category-card" data-category="keychains" tabindex="0" aria-label="Shop keychains">
+                        <div class="category-icon"><i class="fas fa-key"></i></div>
+                        <h3>Keychains</h3>
+                        <p>Cute & functional</p>
+                        <button class="category-btn" tabindex="0" aria-label="Shop Keychains">Shop Now</button>
+                    </div>
+                    <div class="category-card" data-category="accessories" tabindex="0" aria-label="Shop accessories">
+                        <div class="category-icon"><i class="fa-solid fa-spa"></i></div>
+                        <h3>Hair Accessories</h3> 
+                        <p>Complete the look</p>
+                        <button class="category-btn" tabindex="0" aria-label="Shop Accessories">Shop Now</button>
+                    </div>
+                    <div class="category-card" data-category="pouches" tabindex="0" aria-label="Shop pouches">
+                        <div class="category-icon"><i class="fa-solid fa-bag-shopping"></i></div>
+                        <h3>Pouches & Bags</h3>
+                        <p>Holds your day to day items</p>                
+                        <button class="category-btn" tabindex="0" aria-label="Shop Pouches">Shop Now</button>
+                    </div>
+                    <div class="category-card" data-category="book-mark" tabindex="0" aria-label="Shop book mark">
+                        <div class="category-icon"><i class="fa-solid fa-book"></i></div>
+                        <h3>Book Mark</h3>
+                        <p>Essential tool, holds your place in a book</p>
+                        <button class="category-btn" tabindex="0" aria-label="Shop Book Mark">Shop Now</button>
+                    </div>
+                    <div class="category-card" data-category="phone-charm" tabindex="0" aria-label="Shop phone charm">
+                        <div class="category-icon"><i class="fa-solid fa-star"></i></div>
+                        <h3>Phone Charm</h3>
+                        <p>Give you phone a new look</p>
+                        <button class="category-btn" tabindex="0" aria-label="Shop Phone Charm">Shop Now</button>
+                    </div>
+
+                    <div class="category-card" data-category="bouquet" tabindex="0" aria-label="Shop bouquet">
+                        <div class="category-icon"><i class="fa-solid fa-fan"></i></div>
+                        <h3>Bouquet</h3>
+                        <p>Handmade with love</p>
+                        <button class="category-btn" tabindex="0" aria-label="Shop Bouquet">Shop Now</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Shop by Price Section -->
+        <section class="shop-by-price" id="price">
+            <div class="container">
+                <h2 class="section-title">
+                    <i class="fas fa-dollar-sign"></i>
+                    Shop by Price
+                    <i class="fas fa-dollar-sign"></i>
+                </h2>
+                <div class="price-options">
+                    <!-- Populated by JS for all 4 cards including All Collection -->
+                </div>
+            </div>
+        </section>
+
+        <!-- All Products Section -->
+        <section class="all-products" id="all-products">
+            <div class="container">
+                <h2 id="allProductsTitle" class="section-title">
+                    <i class="fas fa-box-open"></i>
+                    All Products
+                    <i class="fas fa-box-open"></i>
+                </h2>
+                <div class="products-grid" id="allProductsGrid" aria-live="polite">
+                    <!-- Product cards via JS -->
+                </div>
+                <div id="viewMoreWrapper"></div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section class="about-section" id="about">
+            <div class="container">
+                <h2 class="section-title">
+                    <i class="fas fa-heart"></i>
+                    About BlushyCheeks
+                    <i class="fas fa-heart"></i>
+                </h2>
+                <div class="about-content">
+                    <p>
+                        Welcome to Blushy Cheeks! We are passionate about bringing you the cutest handmade and aesthetic
+                        accessories to add a touch of joy to your daily life. Each item is crafted with love, attention
+                        to detail, and a sprinkle of crafty spirit.
+                    </p>
+                    <p>
+                        Our mission is to spread happiness and creativity through unique, beautifully crafted products.
+                        Whether you’re shopping for yourself or looking for the perfect gift, we hope you find something
+                        you adore at Blushy Cheeks!
+                    </p>
+                    <p>
+                        Thank you for supporting us and our handmade artistry. Stay cute, stay crafty! 🌸
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-section">
+                        <h3>Blushy Cheeks</h3>
+                        <p>Bringing you the cutest handmade items and aesthetic accessories for your daily dose of
+                            cutest handmade and aesthetic accessories!</p>
+                        <div class="social-links">
+                            <a href="https://www.instagram.com/myblushycheeks?igsh=MWdzc3IxYm1uNWJvbg==" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                            
+                            <!-- <a href="#" aria-label="Pinterest"><i class="fab fa-pinterest"></i></a> -->
+                        </div>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Quick Links</h4>
+                        <ul>
+                            <li><a href="#home" tabindex="0">Home</a></li>
+                            <li><a href="#new-arrivals" tabindex="0">New Arrivals</a></li>
+                            <li><a href="#category" tabindex="0">Categories</a></li>
+                            <li><a href="#about" tabindex="0">About Us</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Customer Care</h4>
+                        <ul>
+                            <li><a href="https://wa.me/918794387293"  tabindex="0" target="_blank" rel="noopener">Contact Us</a></li>
+                            <!-- <li><a href="#help" tabindex="0">Help Center</a></li> -->
+                            <!-- <li><a href="#" tabindex="0">Shipping Info</a></li> -->
+                            <!-- <li><a href="#" tabindex="0">Returns</a></li> -->
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>&copy; 2025 Blushy Cheeks. Made with 💕 for aesthetic lovers.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Category Pages (hidden by default, shown by JS) -->
+    <div id="categoryPages" style="display:none;" aria-live="polite">
+        <!-- Populated by JS -->
+    </div>
+
+    <!-- Cart Page -->
+    <div id="cartPage" class="cart-page" style="display: none;">
+        <div class="container">
+            <div class="cart-page-header">
+                <button class="back-btn" onclick="goBackToHome()" tabindex="0" aria-label="Back to Shopping">
+                    <i class="fas fa-arrow-left"></i>
+                    Back to Shopping
+                </button>
+                <h1 class="cart-page-title">
+                    <i class="fas fa-shopping-bag"></i>
+                    Your Cart
+                </h1>
+            </div>
+
+            <!-- Dynamic Info Bar -->
+            <div class="cart-info-bar" id="cartInfoBar">
+                <!-- Populated by JS -->
+            </div>
+
+            <!-- Cart Items -->
+            <div class="cart-page-items" id="cartPageItems">
+                <!-- Cart items will be populated here -->
+            </div>
+
+            <!-- Delivery Options -->
+            <div class="delivery-options" id="deliveryOptionsSection">
+                <h3>
+                    <i class="fas fa-shipping-fast"></i>
+                    Delivery Options
+                </h3>
+                <div class="delivery-radio-group">
+                    <label class="delivery-option">
+                        <input type="radio" name="delivery" value="standard" checked>
+                        <span class="radio-custom"></span>
+                        <div class="option-content">
+                            <div class="option-title" id="deliveryOptionTitle">Standard (10-12 Days)</div>
+                            <div class="option-price" id="deliveryOptionPrice">₹60</div>
+                        </div>
+                    </label>
+                    <!-- <label class="delivery-option">
+                        <input type="radio" name="delivery" value="fast">
+                        <span class="radio-custom"></span>
+                        <div class="option-content">
+                            <div class="option-title">Fast Delivery (5-7 Days)</div>
+                            <div class="option-price">₹99</div>
+                        </div>
+                    </label> -->
+                </div>
+            </div>
+
+            <!-- Address Form Section (NEW - THEME CUSTOMIZED) -->
+            <div class="address-section card-custom" style="margin: 30px 0;">
+                <div class="card-body">
+                    <div class="text-center mb-3 pb-2 mt-3">
+                        <h4 style="color: #ff79a8;">Delivery Details</h4>
+                    </div>
+                    <form id="addressForm" autocomplete="on">
+                        <div class="row mb-4">
+                            <div class="col">
+                                <input type="text" id="addressFirstName" class="form-control input-custom" placeholder="First name" autocomplete="given-name" required />
+                            </div>
+                            <div class="col">
+                                <input type="text" id="addressLastName" class="form-control input-custom" placeholder="Last name" autocomplete="family-name" required />
+                            </div>
+                        </div>
+                        <div class="row mb-4">
+                            <div class="col">
+                                <input type="tel" id="addressState" class="form-control input-custom" placeholder="State" autocomplete="address-level1" required />
+                            </div>
+                            <div class="col">
+                                <input type="text" id="addressCity" class="form-control input-custom" placeholder="City" autocomplete="address-level2" required />
+                            </div>
+                            <div class="col">
+                                <input type="text" id="addressZip" class="form-control input-custom" placeholder="Pincode" autocomplete="postal-code" required />
+                            </div>
+                        </div>
+                        <div class="row mb-4">
+                            <div class="col">
+                                <input type="text" id="addressStreet" class="form-control input-custom" placeholder="Address" autocomplete="street-address" required />
+                            </div>
+
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+
+            <!-- Cart Summary -->
+            <div class="cart-summary">
+                <div class="summary-row">
+                    <span>Subtotal:</span>
+                    <span id="cartSubtotal">₹0</span>
+                </div>
+                <div class="summary-row">
+                    <span>Delivery:</span>
+                    <span id="deliveryFee">₹0</span>
+                </div>
+                <div class="summary-row total">
+                    <span>Total:</span>
+                    <span id="cartPageTotal">₹0</span>
+                </div>
+            </div>
+
+            <!-- Final Checkout Button -->
+            <button class="final-checkout-btn" id="finalCheckoutBtn" tabindex="0" aria-label="Proceed to DM">
+                <i class="fas fa-comments"></i>
+                💬 Proceed to DM
+            </button>
+        </div>
+    </div>
+
+    <!-- Cart Sidebar -->
+    <div class="cart-sidebar" id="cartSidebar" aria-modal="true" role="dialog" tabindex="-1">
+        <div class="cart-header">
+            <h3>
+                <i class="fas fa-shopping-bag"></i>
+                Shopping Cart
+            </h3>
+            <button class="close-cart-btn" id="closeCartBtn" aria-label="Close cart">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <div class="empty-cart">
+                <i class="fas fa-shopping-cart"></i>
+                <p>Your cart is empty</p>
+                <p>Add some cute items to get started!</p>
+            </div>
+        </div>
+        <div class="cart-footer" id="cartFooter" style="display: none;">
+            <div class="cart-total">
+                <p>Total: ₹<span id="cartTotal">0.00</span></p>
+            </div>
+            <button class="proceed-to-cart-btn" id="proceedToCartBtn" tabindex="0" aria-label="Proceed to Cart">
+                <i class="fas fa-shopping-cart"></i>
+                💬 Proceed to Cart
+            </button>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="copyToast" role="status" aria-live="polite">📋 Paste the message in DM and send!</div>
+
+    <!-- Cart Overlay -->
+    <div class="cart-overlay" id="cartOverlay"></div>
+
+    <!-- Product Modal -->
+    <div class="product-modal" id="productModal" role="dialog" aria-modal="true" tabindex="-1">
+        <div class="modal-content">
+            <button class="close-modal-btn" onclick="closeProductModal()" aria-label="Close product modal">
+                <i class="fas fa-times"></i>
+            </button>
+
+            <div class="modal-body">
+                <div class="modal-image-section">
+                    <div class="main-image">
+                        <img id="modalMainImage" width="800" height="500" src="" alt="" >
+                    </div>
+                    <div class="thumbnail-images" id="modalThumbnails">
+                        <!-- Thumbnails will be populated here -->
+                    </div>
+                </div>
+
+                <div class="modal-info-section">
+                    <h2 id="modalProductName"></h2>
+                    <p class="modal-price" id="modalProductPrice"></p>
+                    <p class="modal-description" id="modalProductDescription"></p>
+
+                    <!-- Color Options -->
+                    <div class="color-options">
+                        <h4>Choose Color:</h4>
+                        <div class="color-swatches" id="modalColorOptions">
+                            <!-- Color options will be populated here -->
+                        </div>
+                    </div>
+
+                    <!-- Quantity Selector -->
+                    <div class="quantity-section">
+                        <h4>Quantity:</h4>
+                        <div class="quantity-controls">
+                            <button class="quantity-btn" onclick="changeModalQuantity(-1)" tabindex="0" aria-label="Decrease quantity">-</button>
+                            <span class="quantity" id="modalQuantity">1</span>
+                            <button class="quantity-btn" onclick="changeModalQuantity(1)" tabindex="0" aria-label="Increase quantity">+</button>
+                        </div>
+                    </div>
+
+                    <!-- Add to Cart Button -->
+                    <button class="modal-add-to-cart-btn" id="modalAddToCartBtn" tabindex="0" aria-label="Add to Cart">
+                        <i class="fas fa-shopping-cart"></i>
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Product Modal Overlay -->
+    <div class="modal-overlay" id="modalOverlay"></div>
+
+    <script src="script.js" defer></script>
+</body>
+</html>
